@@ -1,5 +1,5 @@
 from dics import set, set2
-
+from MessageClass import Messages
 
 class CodeTypes:
 
@@ -99,3 +99,37 @@ class CodeTypes:
 
         mess = [set2[i] for i in out3]
         print(mess)
+
+
+class CodeActions:
+
+    def cesar_code_actions_encode(self):
+        message = input(Messages().input_password).upper().replace(" ", "")
+        b = input(Messages().input_transition_b)
+        CodeTypes().encode_cezar_code(message, int(b))
+
+    def cesar_code_actions_decode(self):
+        message = input(Messages().input_password).upper().replace(" ", "")
+        b = input(Messages().input_transition_b).replace(" ", "")
+        CodeTypes.decode_cesar_code(message, int(b))
+
+    def fence_code_actions_encode(self):
+        message = input(Messages().input_password).upper().replace(" ", "")
+        height = input(Messages().input_fence_height)
+        CodeTypes().encode_fence_code(message, int(height))
+
+    def modulo_code_actions_encode(self):
+        message = input(Messages().input_password).upper().replace(" ", "")
+        b = input(Messages().input_transition_b).replace(" ", "")
+        CodeTypes().encode_modulo(message, int(b))
+
+    def modulo_code_actions_decode(self):
+        message = input(Messages().input_password).upper().replace(" ", "")
+        b = input(Messages().input_transition_b).replace(" ", "")
+        CodeTypes().decode_modulo(message, int(b))
+
+    def afinic_code_encode_decode(self):
+        message = input(Messages().input_password).upper().replace(" ", "")
+        a = input(Messages().input_transition_a).replace(" ", "")
+        b = input(Messages.input_transition_b).replace(" ", "")
+        CodeTypes().encode_decode_module_keys(message, int(a), int(b))

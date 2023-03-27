@@ -1,56 +1,49 @@
-from code_class import CodeTypes
+from code_class import CodeActions
+from MessageClass import Messages
+
 
 def app():
-    print("Rodzaje obsługiwanych szyfrów: Szyfr Cezara/Szyfr płotkowy/Szyfr modułowy/Modułowy podwójny")
-    ask = input("Wpisz rodzaj kodu do szyfrowania: ").lower()
-    codes = CodeTypes()
+    print(Messages().code_types_info)
+    ask = input(Messages().enter_code_type).lower().replace(" ","")
     match ask:
-        case "szyfr cezara":
-            rodzaj = input("Zaszyfrować hasło czy odszyfrować?: ").lower()
-            if rodzaj == 'zaszyfrować':
-                message = input("Wprowadź hasło: ").upper()
-                b = input("Wprowadź przesunięcie: ")
-                codes.encode_cezar_code(message,int(b))
-            elif rodzaj == "odszyfrować":
-                message = input("Wprowadź hasło: ").upper()
-                b = input("Wprowadź przesunięcie: ")
-                codes.decode_cesar_code(message, int(b))
+        case "szyfrcezara":
+            rodzaj = input(Messages().choose_action).lower().replace(" ","")
+            if rodzaj == Messages().encode:
+                CodeActions().cesar_code_actions_encode()
+            elif rodzaj == Messages().decode:
+                CodeActions().cesar_code_actions_decode()
             else:
-                print("Błędna akcja")
-                repeat = input("Zacząć od nowa?: ").lower()
-                if repeat == 'tak':
+                print(Messages().error_wrong_action)
+                repeat = input(Messages().restart_question).lower().replace(" ","")
+                if repeat == Messages().yes:
                     app()
 
-        case "szyfr płotkowy":
-            message = input("Wprowadź hasło do zaszyfrowania: ").upper()
-            height = input("Wprowadź wysokość płotu: ")
-            codes.encode_fence_code(message, int(height))
+        case "szyfrpłotkowy":
+            CodeActions().fence_code_actions_encode()
 
-        case "szyfr modułowy":
-            rodzaj = input("Zaszyfrować hasło czy odszyfrować?: ").lower()
-            if rodzaj == 'zaszyfrować':
-                message = input("Wprowadź hasło: ").upper()
-                b = input("Wprowadź przesunięcie b: ")
-                codes.encode_modulo(message, int(b))
-            elif rodzaj == "odszyfrować":
-                message = input("Wprowadź hasło: ").upper()
-                b = input("Wprowadź przesunięcie: ")
-                codes.decode_modulo(message, int(b))
+        case "szyfrmodułowy":
+            rodzaj = input(Messages().choose_action).lower().replace(" ","")
+            if rodzaj == Messages().encode:
+                CodeActions().modulo_code_actions_encode()
+            elif rodzaj == Messages().decode:
+               CodeActions().modulo_code_actions_decode()
             else:
-                print("Błędna akcja")
-                repeat = input("Zacząć od nowa?: ").lower()
-                if repeat == 'tak':
+                print(Messages().error_wrong_action)
+                repeat = input(Messages().restart_question).lower().replace(" ","")
+                if repeat == Messages().yes:
                     app()
-        case "modułowy podwójny":
-            message = input("Wprowadź hasło: ").upper()
-            a = input("Wprowadź przesunięcie a: ")
-            b = input("Wprowadź przesunięcie b: ")
-            codes.encode_decode_module_keys(message, int(a), int(b))
+        case "szyfrafiniczny":
+            CodeActions().afinic_code_encode_decode()
         case _ :
-            reapet = input("Błędny typ szyfru, czy chcesz  spróbować ponownie?: ").lower()
-            if reapet == "tak":
+            reapet = input(Messages().error_type_code).lower().replace(" ","")
+            if reapet == Messages().yes:
                 app()
             else:
-                print("Pal wroty")
+                print(Messages().message_for_haters)
 
+    try_again = input(Messages().restart_question).lower().replace(" ","")
+    if try_again == Messages.yes:
+        app()
+    else:
+        print(Messages().message_for_kumpels)
 app()
