@@ -1,8 +1,12 @@
 
 class Messages:
 
-    code_types_info = "Rodzaje obsługiwanych szyfrów: Szyfr Cezara/Szyfr płotkowy/Szyfr modułowy/Szyfr Afiniczny"
-    enter_code_type = "Wpisz rodzaj kodu do szyfrowania: "
+    code_types_info = f"Rodzaje obsługiwanych szyfrów: \n" \
+                      "Szyfr Cezara - 1 \n" \
+                      "Szyfr płotkowy - 2 \n" \
+                      "Szyfr modułowy - 3 \n" \
+                      "Szyfr Afiniczny - 4 \n"
+    enter_code_type = "Wybierz numer szyfru: "
     choose_action = "Zaszyfrować hasło czy odszyfrować?: "
     encode = "zaszyfrować"
     decode = "odszyfrować"
@@ -11,6 +15,7 @@ class Messages:
     error_wrong_action = "Błędna akcja"
     restart_question = "Zacząć od nowa?: "
     yes = "tak"
+    no = "no"
     input_fence_height = "Wprowadź wysokość płotu: "
     input_transition_a = "Wprowadź przesunięcie a: "
     error_type_code = "Błędny typ szyfru, czy chcesz  spróbować ponownie?: "
