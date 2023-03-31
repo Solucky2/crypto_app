@@ -15,6 +15,3 @@ def solve_digram(out1:int, x:int,out2:int, y:int):
             res2 = (a*y+b)%676
             if res1 == out1 and res2 == out2:
                 print({'a': a, 'b': b})
-
-
-solve_digram(92,341,332,277)
