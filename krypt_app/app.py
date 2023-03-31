@@ -1,6 +1,5 @@
 from code_class import CodeActions
 from MessageClass import Messages
-from solver import solve
 
 
 def app():

@@ -24,27 +24,33 @@ class CodeTypes:
 
 
 
-    def decode_cesar_code(self, message:str, b): #dziala
+    def decode_cesar_code(self, message:str, b:int): #dziala
         out = []
         for i in message:
             ind = set.get(i)
             val = (ind - b) % 26
             out.append(val)
         mess = [set2[i] for i in out]
-        print(mess)
+        encoded = ''
+        for _ in mess:
+            encoded += _
+        print(encoded)
 
 
-    def encode_cezar_code(self, message:str,b): #dziala
+    def encode_cezar_code(self, message:str,b:int): #dziala
         out = []
         for i in message:
             ind = set.get(i)
             val = (ind + b) % 26
             out.append(val)
         mess = [set2[i] for i in out]
-        print(mess)
+        encoded = ''
+        for _ in mess:
+            encoded += _
+        print(encoded)
 
 
-    def encode_modulo(self, message:str, b): #działa
+    def encode_modulo(self, message:str, b:int): #działa
         outp = []
         for i in message:
             a = set.get(i)
@@ -52,7 +58,10 @@ class CodeTypes:
             outp.append(val)
 
         mess = [set2[i] for i in outp]
-        print(mess)
+        encoded = ''
+        for _ in mess:
+            encoded += _
+        print(encoded)
 
     def decode_modulo(self, message:str, b:int): #działa
         outp = []
@@ -62,7 +71,10 @@ class CodeTypes:
             outp.append(val)
 
         mess = [set2[i] for i in outp]
-        print(mess)
+        encoded = ''
+        for _ in mess:
+            encoded += _
+        print(encoded)
 
 
     def encode_decode_module_keys(self, message:str, key1:int, key2:int): #dziala
@@ -72,64 +84,75 @@ class CodeTypes:
             val = (a*key1+key2)%26
             out.append(val)
         mess = [set2[i] for i in out]
-        print(mess)
+        encoded = ''
+        for _ in mess:
+            encoded += _
+        print(encoded)
 
 
-    def decoed_modulo_n2(self, message:str): #todo dokończyć
-        out = []
-        length = len(message)
-        print(length)
-        if length // 2 != 0:
-            pass
-            # sentence.('Q')
-            print(message)
-            for i in message:
-                pass
-
-    def encode_module_n2(self, message:str,a:int, b:int): #działa
+    def encode_decode_module_n2(self, message:str,a:int, b:int): #działa
+        if len(message) % 2 != 0:
+            message += "Q"
         out3 = []
-        sen2 = [message[i:i+2] for i in range(0, len(message), 2)]
-        out = (26*set.get(i[0])+set.get(i[1]) for i in sen2)
-        out2 = ((a*i+b)%676 for i in out)
+        sen2 = [message[i:i + 2] for i in range(0, len(message), 2)]
+        out = (26 * set.get(i[0]) + set.get(i[1]) for i in sen2)
+        out2 = ((a * i + b) % 676 for i in out)
+        print(out2)
         for i in out2:
-            val3 = i//26
-            val4 = i%26
+            val3 = i // 26
+            val4 = i % 26
             out3.append(val3)
             out3.append(val4)
-
         mess = [set2[i] for i in out3]
-        print(mess)
+        encoded = ''
+        for _ in mess:
+            encoded += _
+        print(encoded)
 
 
 class CodeActions:
 
     def cesar_code_actions_encode(self):
-        message = input(Messages().input_password).upper().replace(" ", "")
-        b = input(Messages().input_transition_b)
-        CodeTypes().encode_cezar_code(message, int(b))
-
+        try:
+            message = input(Messages().input_password).upper().replace(" ", "")
+            b = input(Messages().input_transition_b).replace(" ", "")
+            CodeTypes().encode_cezar_code(message, int(b))
+        except:
+            print(Messages().messege_invalid_type)
     def cesar_code_actions_decode(self):
-        message = input(Messages().input_password).upper().replace(" ", "")
-        b = input(Messages().input_transition_b).replace(" ", "")
-        CodeTypes.decode_cesar_code(message, int(b))
-
+        try:
+            message = input(Messages().input_password).upper().replace(" ", "")
+            b = input(Messages().input_transition_b).replace(" ", "")
+            CodeTypes().decode_cesar_code(message, int(b))
+        except:
+            print(Messages().messege_invalid_type)
     def fence_code_actions_encode(self):
-        message = input(Messages().input_password).upper().replace(" ", "")
-        height = input(Messages().input_fence_height)
-        CodeTypes().encode_fence_code(message, int(height))
-
+        try:
+            message = input(Messages().input_password).upper().replace(" ", "")
+            height = input(Messages().input_fence_height).replace(" ", "")
+            CodeTypes().encode_fence_code(message, int(height))
+        except:
+            print(Messages().messege_invalid_type)
     def modulo_code_actions_encode(self):
-        message = input(Messages().input_password).upper().replace(" ", "")
-        b = input(Messages().input_transition_b).replace(" ", "")
-        CodeTypes().encode_modulo(message, int(b))
-
+        try:
+            message = input(Messages().input_password).upper().replace(" ", "")
+            b = input(Messages().input_transition_b).replace(" ", "")
+            CodeTypes().encode_modulo(message, int(b))
+        except:
+            print(Messages().messege_invalid_type)
     def modulo_code_actions_decode(self):
-        message = input(Messages().input_password).upper().replace(" ", "")
-        b = input(Messages().input_transition_b).replace(" ", "")
-        CodeTypes().decode_modulo(message, int(b))
+        try:
+            message = input(Messages().input_password).upper().replace(" ", "")
+            b = input(Messages().input_transition_b).replace(" ", "")
+            CodeTypes().decode_modulo(message, int(b))
+        except:
+            print(Messages().messege_invalid_type)
 
     def afinic_code_encode_decode(self):
         message = input(Messages().input_password).upper().replace(" ", "")
-        a = input(Messages().input_transition_a).replace(" ", "")
-        b = input(Messages.input_transition_b).replace(" ", "")
-        CodeTypes().encode_decode_module_keys(message, int(a), int(b))
+        try:
+            a = input(Messages().input_transition_a).replace(" ", "")
+            b = input(Messages.input_transition_b).replace(" ", "")
+            CodeTypes().encode_decode_module_keys(message, int(a), int(b))
+        except ValueError:
+            print(Messages().messege_invalid_type)

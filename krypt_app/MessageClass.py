@@ -3,9 +3,10 @@ class Messages:
 
     code_types_info = f"Rodzaje obsługiwanych szyfrów: \n" \
                       "Szyfr Cezara - 1 \n" \
-                      "Szyfr płotkowy - 2 \n" \
-                      "Szyfr modułowy - 3 \n" \
-                      "Szyfr Afiniczny - 4 \n"
+                      "Szyfr Płotkowy - 2 \n" \
+                      "Szyfr Prosty Modułowy - 3 \n" \
+                      "Szyfr Afiniczny - 4 \n" \
+                      "Digram - 5"
     enter_code_type = "Wybierz numer szyfru: "
     choose_action = "Zaszyfrować hasło czy odszyfrować?: "
     encode = "zaszyfrować"
@@ -21,3 +22,4 @@ class Messages:
     error_type_code = "Błędny typ szyfru, czy chcesz  spróbować ponownie?: "
     message_for_haters = "Pal wroty"
     message_for_kumpels = "Koksem jesteś B)"
+    messege_invalid_type = "Przesunięcia muszą być liczbami!"
