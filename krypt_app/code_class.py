@@ -1,5 +1,6 @@
 from dics import set, set2
 from MessageClass import Messages
+from solver import solve_digram, solve_afinic_code
 
 class CodeTypes:
 
@@ -90,7 +91,7 @@ class CodeTypes:
         print(encoded)
 
 
-    def encode_decode_module_n2(self, message:str,a:int, b:int): #działa
+    def encode_decode_modulo_digram(self, message:str,a:int, b:int): #działa
         if len(message) % 2 != 0:
             message += "Q"
         out3 = []

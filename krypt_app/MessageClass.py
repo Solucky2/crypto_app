@@ -7,6 +7,10 @@ class Messages:
                       "Szyfr Prosty Modułowy - 3 \n" \
                       "Szyfr Afiniczny - 4 \n" \
                       "Digram - 5"
+    solve_message = "Czy chcesz najpierw użyć solvera?: "
+    choose_solver_type = "Wybierz typ solvera: \n" \
+                         "solver do szyfru afinicznego: 1" \
+                         "solver do digramu: 2"
     enter_code_type = "Wybierz numer szyfru: "
     choose_action = "Zaszyfrować hasło czy odszyfrować?: "
     encode = "zaszyfrować"

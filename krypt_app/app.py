@@ -39,4 +39,6 @@ def app():
         app()
     else:
         print(Messages().message_for_kumpels)
+
+
 app()
