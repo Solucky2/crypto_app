@@ -1,44 +1,71 @@
-from code_class import CodeActions
-from MessageClass import Messages
+from code_class import CodeActions, SolverActions
+from MessageClass import EncodeMessages, SolverMessages, AppMessages
 
 
-def app():
-    print(Messages().code_types_info)
-    ask = input(Messages().enter_code_type).replace(" ","")
+def encode_app():
+    print(EncodeMessages().code_types_info)
+    ask = input(EncodeMessages().enter_code_type).replace(" ","")
     match ask:
         case "1":
-            rodzaj = input(Messages().choose_action).lower().replace(" ","")
-            if rodzaj == Messages().encode:
+            rodzaj = input(EncodeMessages().choose_action).lower().replace(" ","")
+            if rodzaj == EncodeMessages().encode:
                 CodeActions().cesar_code_actions_encode()
-            elif rodzaj == Messages().decode:
+            elif rodzaj == EncodeMessages().decode:
                 CodeActions().cesar_code_actions_decode()
             else:
-                print(Messages().error_wrong_action)
+                print(EncodeMessages().error_wrong_action)
 
         case "2":
             CodeActions().fence_code_actions_encode()
         case "3":
-            rodzaj = input(Messages().choose_action).lower().replace(" ","")
-            if rodzaj == Messages().encode:
+            rodzaj = input(EncodeMessages().choose_action).lower().replace(" ","")
+            if rodzaj == EncodeMessages().encode:
                 CodeActions().modulo_code_actions_encode()
-            elif rodzaj == Messages().decode:
+            elif rodzaj == EncodeMessages().decode:
                CodeActions().modulo_code_actions_decode()
             else:
-                print(Messages().error_wrong_action)
+
+                print(EncodeMessages().error_wrong_action)
         case "4":
             CodeActions().afinic_code_encode_decode()
+        case "5":
+            CodeActions().digram_code_encode_decode()
         case _ :
-            reapet = input(Messages().error_type_code).lower().replace(" ","")
-            if reapet == Messages().yes:
-                app()
+            reapet = input(EncodeMessages().error_type_code).lower().replace(" ","")
+            if reapet == EncodeMessages().yes:
+                encode_app()
             else:
-                print(Messages().message_for_haters)
+                print(EncodeMessages().message_for_haters)
                 return 0
-    try_again = input(Messages().restart_question).lower().replace(" ","")
-    if try_again == Messages.yes:
-        app()
+    try_again = input(EncodeMessages().restart_question).lower().replace(" ","")
+    if try_again == EncodeMessages.yes:
+        encode_app()
     else:
-        print(Messages().message_for_kumpels)
+        print(EncodeMessages().message_for_kumpels)
 
 
-app()
+
+def solver_app():
+    print(SolverMessages().solver_types)
+    choose_solver = input(SolverMessages().choose_solver)
+    match choose_solver:
+        case "1":
+            SolverActions().afinic_solve_actions()
+
+        case "2":
+            SolverActions().digram_solve_actions()
+
+        case _:
+            print(EncodeMessages().error_wrong_action)
+
+
+
+if __name__ == '__main__':
+    print(AppMessages().choose_app)
+    choose_app = input(AppMessages().choose_action)
+    if choose_app == "1":
+        solver_app()
+    elif choose_app == "2":
+        encode_app()
+    else:
+        print(AppMessages().app_error)

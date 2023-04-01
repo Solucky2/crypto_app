@@ -1,6 +1,7 @@
 from dics import set, set2
-from MessageClass import Messages
+from MessageClass import EncodeMessages, SolverMessages
 from solver import solve_digram, solve_afinic_code
+
 
 class CodeTypes:
 
@@ -98,7 +99,6 @@ class CodeTypes:
         sen2 = [message[i:i + 2] for i in range(0, len(message), 2)]
         out = (26 * set.get(i[0]) + set.get(i[1]) for i in sen2)
         out2 = ((a * i + b) % 676 for i in out)
-        print(out2)
         for i in out2:
             val3 = i // 26
             val4 = i % 26
@@ -115,45 +115,77 @@ class CodeActions:
 
     def cesar_code_actions_encode(self):
         try:
-            message = input(Messages().input_password).upper().replace(" ", "")
-            b = input(Messages().input_transition_b).replace(" ", "")
+            message = input(EncodeMessages().input_password).upper().replace(" ", "")
+            b = input(EncodeMessages().input_transition_b).replace(" ", "")
             CodeTypes().encode_cezar_code(message, int(b))
         except:
-            print(Messages().messege_invalid_type)
+            print(EncodeMessages().messege_invalid_type)
     def cesar_code_actions_decode(self):
         try:
-            message = input(Messages().input_password).upper().replace(" ", "")
-            b = input(Messages().input_transition_b).replace(" ", "")
+            message = input(EncodeMessages().input_password).upper().replace(" ", "")
+            b = input(EncodeMessages().input_transition_b).replace(" ", "")
             CodeTypes().decode_cesar_code(message, int(b))
         except:
-            print(Messages().messege_invalid_type)
+            print(EncodeMessages().messege_invalid_type)
     def fence_code_actions_encode(self):
         try:
-            message = input(Messages().input_password).upper().replace(" ", "")
-            height = input(Messages().input_fence_height).replace(" ", "")
+            message = input(EncodeMessages().input_password).upper().replace(" ", "")
+            height = input(EncodeMessages().input_fence_height).replace(" ", "")
             CodeTypes().encode_fence_code(message, int(height))
         except:
-            print(Messages().messege_invalid_type)
+            print(EncodeMessages().messege_invalid_type)
     def modulo_code_actions_encode(self):
         try:
-            message = input(Messages().input_password).upper().replace(" ", "")
-            b = input(Messages().input_transition_b).replace(" ", "")
+            message = input(EncodeMessages().input_password).upper().replace(" ", "")
+            b = input(EncodeMessages().input_transition_b).replace(" ", "")
             CodeTypes().encode_modulo(message, int(b))
         except:
-            print(Messages().messege_invalid_type)
+            print(EncodeMessages().messege_invalid_type)
     def modulo_code_actions_decode(self):
         try:
-            message = input(Messages().input_password).upper().replace(" ", "")
-            b = input(Messages().input_transition_b).replace(" ", "")
+            message = input(EncodeMessages().input_password).upper().replace(" ", "")
+            b = input(EncodeMessages().input_transition_b).replace(" ", "")
             CodeTypes().decode_modulo(message, int(b))
         except:
-            print(Messages().messege_invalid_type)
+            print(EncodeMessages().messege_invalid_type)
 
     def afinic_code_encode_decode(self):
-        message = input(Messages().input_password).upper().replace(" ", "")
+        message = input(EncodeMessages().input_password).upper().replace(" ", "")
         try:
-            a = input(Messages().input_transition_a).replace(" ", "")
-            b = input(Messages.input_transition_b).replace(" ", "")
+            a = input(EncodeMessages().input_transition_a).replace(" ", "")
+            b = input(EncodeMessages.input_transition_b).replace(" ", "")
             CodeTypes().encode_decode_module_keys(message, int(a), int(b))
         except ValueError:
-            print(Messages().messege_invalid_type)
+            print(EncodeMessages().messege_invalid_type)
+
+    def digram_code_encode_decode(self):
+        message = input(EncodeMessages().input_password).upper().replace(" ", "")
+        try:
+            a = input(EncodeMessages().input_transition_a).replace(" ", "")
+            b = input(EncodeMessages.input_transition_b).replace(" ", "")
+            CodeTypes().encode_decode_modulo_digram(message, int(a), int(b))
+        except ValueError:
+            print(EncodeMessages().messege_invalid_type)
+
+
+class SolverActions:
+
+    def afinic_solve_actions(self):
+        try:
+            x = input(SolverMessages().x_input).replace(" ", "")
+            y = input(SolverMessages().y_input).replace(" ", "")
+            out1 = input(SolverMessages().out1_input).replace(" ", "")
+            out2 = input(SolverMessages().out2_input).replace(" ", "")
+            solve_afinic_code(int(x), int(y), int(out1), int(out2))
+        except ValueError:
+            print(SolverMessages().message_invalid_type)
+
+    def digram_solve_actions(self):
+        try:
+            x = input(SolverMessages().x_input).replace(" ", "")
+            y = input(SolverMessages().y_input).replace(" ", "")
+            out1 = input(SolverMessages().out1_input).replace(" ", "")
+            out2 = input(SolverMessages().out2_input).replace(" ", "")
+            solve_digram(int(out1),int(x),int(out2),int(y))
+        except ValueError:
+            print(SolverMessages().message_invalid_type)

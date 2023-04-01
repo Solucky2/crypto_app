@@ -1,5 +1,5 @@
 
-class Messages:
+class EncodeMessages:
 
     code_types_info = f"Rodzaje obsługiwanych szyfrów: \n" \
                       "Szyfr Cezara - 1 \n" \
@@ -7,10 +7,6 @@ class Messages:
                       "Szyfr Prosty Modułowy - 3 \n" \
                       "Szyfr Afiniczny - 4 \n" \
                       "Digram - 5"
-    solve_message = "Czy chcesz najpierw użyć solvera?: "
-    choose_solver_type = "Wybierz typ solvera: \n" \
-                         "solver do szyfru afinicznego: 1" \
-                         "solver do digramu: 2"
     enter_code_type = "Wybierz numer szyfru: "
     choose_action = "Zaszyfrować hasło czy odszyfrować?: "
     encode = "zaszyfrować"
@@ -27,3 +23,23 @@ class Messages:
     message_for_haters = "Pal wroty"
     message_for_kumpels = "Koksem jesteś B)"
     messege_invalid_type = "Przesunięcia muszą być liczbami!"
+
+
+class SolverMessages:
+    solve_message = "Czy chcesz najpierw użyć solvera?: "
+    solver_types = "Rodzaje solverów: \n" \
+                         "solver do szyfru afinicznego: 1 \n" \
+                         "solver do digramu: 2"
+    choose_solver = "Wpisz numer wybranego solvera: "
+    x_input = "Wprowadź numer początkowy ciągu znaków (x): "
+    y_input = "Wprowadź numer początkowy ciągu znaków (y): "
+    out1_input = "Wprowadź wartość przyjmującą zakodowany ciąg znaków (x): "
+    out2_input = "Wprowadź wartość przyjmującą zakodowany ciąg znaków (y): "
+    message_invalid_type = "Numery muszą być znakami!"
+
+
+class AppMessages:
+    choose_action = "Wybierz akcję: "
+    choose_app = "Solver: 1 \n" \
+                 "Szyfrowanie: 2"
+    app_error = "Niepoprawna akcja baranie"
