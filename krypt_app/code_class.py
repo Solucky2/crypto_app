@@ -118,35 +118,35 @@ class CodeActions:
             message = input(EncodeMessages().input_password).upper().replace(" ", "")
             b = input(EncodeMessages().input_transition_b).replace(" ", "")
             CodeTypes().encode_cezar_code(message, int(b))
-        except:
+        except ValueError:
             print(EncodeMessages().messege_invalid_type)
     def cesar_code_actions_decode(self):
         try:
             message = input(EncodeMessages().input_password).upper().replace(" ", "")
             b = input(EncodeMessages().input_transition_b).replace(" ", "")
             CodeTypes().decode_cesar_code(message, int(b))
-        except:
+        except ValueError:
             print(EncodeMessages().messege_invalid_type)
     def fence_code_actions_encode(self):
         try:
             message = input(EncodeMessages().input_password).upper().replace(" ", "")
             height = input(EncodeMessages().input_fence_height).replace(" ", "")
             CodeTypes().encode_fence_code(message, int(height))
-        except:
+        except ValueError:
             print(EncodeMessages().messege_invalid_type)
     def modulo_code_actions_encode(self):
         try:
             message = input(EncodeMessages().input_password).upper().replace(" ", "")
             b = input(EncodeMessages().input_transition_b).replace(" ", "")
             CodeTypes().encode_modulo(message, int(b))
-        except:
+        except ValueError:
             print(EncodeMessages().messege_invalid_type)
     def modulo_code_actions_decode(self):
         try:
             message = input(EncodeMessages().input_password).upper().replace(" ", "")
             b = input(EncodeMessages().input_transition_b).replace(" ", "")
             CodeTypes().decode_modulo(message, int(b))
-        except:
+        except ValueError:
             print(EncodeMessages().messege_invalid_type)
 
     def afinic_code_encode_decode(self):
