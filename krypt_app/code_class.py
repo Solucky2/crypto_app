@@ -172,20 +172,20 @@ class SolverActions:
 
     def afinic_solve_actions(self):
         try:
-            x = input(SolverMessages().x_input).replace(" ", "")
-            y = input(SolverMessages().y_input).replace(" ", "")
+            par1 = input(SolverMessages().x_input).replace(" ", "")
             out1 = input(SolverMessages().out1_input).replace(" ", "")
+            par2 = input(SolverMessages().y_input).replace(" ", "")
             out2 = input(SolverMessages().out2_input).replace(" ", "")
-            solve_afinic_code(int(x), int(y), int(out1), int(out2))
+            solve_afinic_code(par1=par1,par2=par2,out1=out1,out2=out2)
         except ValueError:
             print(SolverMessages().message_invalid_type)
 
     def digram_solve_actions(self):
         try:
-            x = input(SolverMessages().x_input).replace(" ", "")
-            y = input(SolverMessages().y_input).replace(" ", "")
+            par1 = input(SolverMessages().x_input).replace(" ", "")
             out1 = input(SolverMessages().out1_input).replace(" ", "")
+            par2 = input(SolverMessages().y_input).replace(" ", "")
             out2 = input(SolverMessages().out2_input).replace(" ", "")
-            solve_digram(int(out1),int(x),int(out2),int(y))
+            solve_digram(par1=par1,par2=par2,out1=out1,out2=out2)
         except ValueError:
             print(SolverMessages().message_invalid_type)

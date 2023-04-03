@@ -31,10 +31,10 @@ class SolverMessages:
                          "solver do szyfru afinicznego: 1 \n" \
                          "solver do digramu: 2"
     choose_solver = "Wpisz numer wybranego solvera: "
-    x_input = "Wprowadź numer początkowy ciągu znaków (x): "
-    y_input = "Wprowadź numer początkowy ciągu znaków (y): "
-    out1_input = "Wprowadź wartość przyjmującą zakodowany ciąg znaków (x): "
-    out2_input = "Wprowadź wartość przyjmującą zakodowany ciąg znaków (y): "
+    x_input = "Wprowadź pierwszy ciąg liter do zaszyfrowania (x): "
+    y_input = "Wprowadź drugi ciąg liter do zaszyfrowania (y): "
+    out1_input = "Wprowadź na co one się szyfrują (x): "
+    out2_input = "Wprowadź na co one się szyfrują(y): "
     message_invalid_type = "Numery muszą być znakami!"
 
 
