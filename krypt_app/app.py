@@ -22,7 +22,7 @@ def encode_app():
             if rodzaj == EncodeMessages().encode:
                 CodeActions().modulo_code_actions_encode()
             elif rodzaj == EncodeMessages().decode:
-               CodeActions().modulo_code_actions_decode()
+                CodeActions().modulo_code_actions_decode()
             else:
 
                 print(EncodeMessages().error_wrong_action)
@@ -30,6 +30,14 @@ def encode_app():
             CodeActions().afinic_code_encode_decode()
         case "5":
             CodeActions().digram_code_encode_decode()
+        case "6":
+            rodzaj = input(EncodeMessages().choose_action).lower().replace(" ","")
+            if rodzaj == EncodeMessages().encode:
+                CodeActions().matrix_code_encode()
+            elif rodzaj == EncodeMessages().decode:
+                CodeActions().matrix_code_decode()
+        case "7":
+            CodeActions().playfair_code_encode()
         case _ :
             reapet = input(EncodeMessages().error_type_code).lower().replace(" ","")
             if reapet == EncodeMessages().yes:
@@ -54,7 +62,8 @@ def solver_app():
 
         case "2":
             SolverActions().digram_solve_actions()
-
+        case '3':
+            pass
         case _:
             print(EncodeMessages().error_wrong_action)
 

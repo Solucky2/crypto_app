@@ -3,10 +3,10 @@ import numpy as np
 
 
 def solve_afinic_code(par1: str, par2: str, out1: str, out2: str):
-    x = set.get(par1)
-    y = set.get(par2)
-    out1 = set.get(out1)
-    out2 = set.get(out2)
+    x = set1.get(par1)
+    y = set1.get(par2)
+    out1 = set1.get(out1)
+    out2 = set1.get(out2)
     for a in range(26):
         for b in range(26):
             res1 = (a*x+b) % 26
@@ -16,12 +16,12 @@ def solve_afinic_code(par1: str, par2: str, out1: str, out2: str):
 
 
 def solve_digram(par1: str, par2: str, out1: str, out2: str):
-    par_1_num = [set.get(i) for i in par1]
-    par_2_num = [set.get(i) for i in par2]
+    par_1_num = [set1.get(i) for i in par1]
+    par_2_num = [set1.get(i) for i in par2]
     x = par_1_num[0]*26+par_1_num[1]
     y = par_2_num[0]*26+par_2_num[1]
-    out1_num = [set.get(i) for i in out1]
-    out2_num = [set.get(i) for i in out2]
+    out1_num = [set1.get(i) for i in out1]
+    out2_num = [set1.get(i) for i in out2]
     out1 = out1_num[0]*26+out1_num[1]
     out2 = out2_num[0]*26+out2_num[1]
     for a in range(676):
@@ -33,15 +33,15 @@ def solve_digram(par1: str, par2: str, out1: str, out2: str):
 
 
 def solve_matrix(par1: str, par2: str, out1: str, out2: str):
-    par_1_num = [set.get(i) for i in par1]
-    par_2_num = [set.get(i) for i in par2]
-    out1_num = [set.get(i) for i in out1]
-    out2_num = [set.get(i) for i in out2]
+    par_1_num = [set1.get(i) for i in par1]
+    par_2_num = [set1.get(i) for i in par2]
+    out1_num = [set1.get(i) for i in out1]
+    out2_num = [set1.get(i) for i in out2]
     array_keys_text_public = np.transpose(np.array([par_1_num, par_2_num]))
     array_keys_text_decoded = np.transpose(np.array([out1_num, out2_num]))
     det_keys_decoded = round(np.linalg.det(array_keys_text_decoded))
-    det_keys_decoded_modulo = det_keys_decoded % len(set)
-    modulo_reverse = pow(det_keys_decoded_modulo, -1, len(set))
+    det_keys_decoded_modulo = det_keys_decoded % len(set1)
+    modulo_reverse = pow(det_keys_decoded_modulo, -1, len(set1))
     array_keys_text_decoded_list = []
     for row in array_keys_text_decoded:
         for number in row:
@@ -55,11 +55,11 @@ def solve_matrix(par1: str, par2: str, out1: str, out2: str):
         for num in row:
             if num < 0:
                 while num < 0:
-                    num += len(set)
+                    num += len(set1)
                 c_final.append(num)
-            elif num > len(set):
-                while num > len(set):
-                    num -= len(set)
+            elif num > len(set1):
+                while num > len(set1):
+                    num -= len(set1)
                 c_final.append(num)
             else:
                 c_final.append(num)
@@ -79,10 +79,8 @@ def solve_matrix(par1: str, par2: str, out1: str, out2: str):
     final_array_out = []
     for row in final_array:
         for number in row:
-            final_array_out.append(number % len(set))
+            final_array_out.append(number % len(set1))
     final_array_out = np.array(final_array_out)
     final_array_out = final_array_out.reshape(2, -1)
     print("Macierz rozszyfrowująca: ")
     print(final_array_out)
-
-
