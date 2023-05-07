@@ -155,12 +155,9 @@ class CodeTypes:
         print("Hasło: " + encoded)
 
     def create_playfair_matrix(self, message_key:str):
-        # usuń powtarzające się litery i spacje
         key = message_key.replace(' ', '')
         key = ''.join(sorted(set(key), key=key.index))
-        # utwórz pustą macierz 5x5
         matrix = [['' for _ in range(5)] for _ in range(5)]
-        # wypełnij macierz literami klucza i litery alfabetu
         letters = key + 'ABCDEFGHIKLMNOPQRSTUVWXYZ'
         used_letters = []
         for row in range(5):
@@ -171,7 +168,6 @@ class CodeTypes:
                     letter = letters[0]
                 matrix[row][col] = letter
                 used_letters.append(letter)
-        # zamień litery 'j' na 'i'
         for row in range(5):
             for col in range(5):
                 if matrix[row][col] == 'J':
@@ -321,7 +317,7 @@ class SolverActions:
         except ValueError:
             print(SolverMessages().message_invalid_type)
 
-    def matrix_solce_actions(self):
+    def matrix_solve_actions(self):
         try:
             par1 = input(SolverMessages().x_input).replace(" ", "")
             out1 = input(SolverMessages().out1_input).replace(" ", "")

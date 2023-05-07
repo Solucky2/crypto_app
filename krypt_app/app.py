@@ -59,11 +59,10 @@ def solver_app():
     match choose_solver:
         case "1":
             SolverActions().afinic_solve_actions()
-
         case "2":
             SolverActions().digram_solve_actions()
         case '3':
-            pass
+            SolverActions().matrix_solve_actions()
         case _:
             print(EncodeMessages().error_wrong_action)
 
