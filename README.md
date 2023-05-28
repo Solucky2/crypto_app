@@ -2,7 +2,7 @@
 Aplikacja napisana w celu pomocy w nauce przedmiotu Podstawy Kryptografii.
 Aby poprawnie uruchomić aplikacje należy mieć
 zainstalowanego pythona wraz z bibliotaką numpy.
-Obecna wersja: (1.4) 
+Obecna wersja: (1.5) 
 Obecne możliwości aplikacji:
 1. Solver:
 - szyfrów afinicznych
