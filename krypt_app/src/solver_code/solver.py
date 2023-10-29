@@ -1,4 +1,4 @@
-from dics import *
+from krypt_app.src.messages.dics import *
 import numpy as np
 
 
